@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>One Page</title>
+  <meta name="description" content="Sitio One Page en tonos dorados y negros con secciones enlazadas dinámicamente, efectos sutiles y CTA a WhatsApp." />
+
+  <!-- Open Graph básico -->
+  <meta property="og:title" content="One Page — Nombre del chat" />
+  <meta property="og:description" content="Secciones dinámicas, efectos dorados y CTA a WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logopng.png" />
+
+  <link rel="icon" href="logopng.png" />
+  <link rel="preload" as="image" href="logopng.png">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- (Opcional) Google Analytics: pega tu script aquí -->
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="shine"></div>
+    <nav class="navbar container">
+      <a href="#inicio" class="brand">
+        <img src="logopng.png" alt="Logo" class="brand__logo">
+        <span class="brand__name">FigiKhan</span>
+      </a>
+
+      <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">☰</button>
+
+      <ul id="navMenu" class="nav-links" role="menubar">
+        <li><a href="#inicio" class="nav-link active" role="menuitem">Inicio</a></li>
+        <li><a href="#servicios" class="nav-link" role="menuitem">Servicios</a></li>
+        <li><a href="#beneficios" class="nav-link" role="menuitem">Beneficios</a></li>
+        <li><a href="#portfolio" class="nav-link" role="menuitem">Portfolio</a></li>
+        <li><a href="#precios" class="nav-link" role="menuitem">Precios</a></li>
+        <li><a href="#contacto" class="nav-link" role="menuitem">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="inicio" class="section hero container reveal">
+      <div class="hero__content">
+        <h1 class="title">
+          Tu <span class="gold">One Page</span> lista para convertir
+        </h1>
+        <p class="lead">
+          Diseño en dorado y negro, enlaces dinámicos y efectos sutiles. Todo en una sola página rápida y moderna.
+        </p>
+        <div class="actions">
+          <a class="btn btn--gold" href="#servicios">Ver servicios</a>
+          <a class="btn btn--ghost" href="#contacto">Contactar</a>
+        </div>
+
+        <ul class="ticks">
+          <li>Scroll suave + menú activo por sección</li>
+          <li>Tarjetas con brillo y micro-animaciones</li>
+          <li>CTA a WhatsApp con mensaje prellenado</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual">
+        <div class="orb"></div>
+        <div class="sparkles" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="section container reveal">
+      <h2 class="section__title">Servicios</h2>
+      <p class="section__subtitle">Cinco opciones rápidas para lanzar tu web.</p>
+
+      <div class="grid cards-5">
+        <article class="card">
+          <h3>Landing Page Express</h3>
+          <p>Sección única enfocada en conversión y CTA.</p>
+          <a href="#contacto" class="btn-link">Quiero esto →</a>
+        </article>
+
+        <article class="card">
+          <h3>One Page Responsive</h3>
+          <p>Menú ancla a secciones con scroll suave.</p>
+          <a href="#contacto" class="btn-link">Pedir cotización →</a>
+        </article>
+
+        <article class="card">
+          <h3>Maquetación HTML/SCSS</h3>
+          <p>Código limpio, variables y mixins listos.</p>
+          <a href="#contacto" class="btn-link">Hablemos →</a>
+        </article>
+
+        <article class="card">
+          <h3>UI Animada</h3>
+          <p>Interacciones elegantes sin perder performance.</p>
+          <a href="#contacto" class="btn-link">Ver opciones →</a>
+        </article>
+
+        <article class="card">
+          <h3>Sitio Multipágina</h3>
+          <p>Base escalable a más secciones y blog.</p>
+          <a href="#contacto" class="btn-link">Armar plan →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="section section--dark reveal">
+      <div class="container">
+        <h2 class="section__title">Beneficios</h2>
+        <div class="grid benefits">
+          <div class="benefit">
+            <span class="icon">⚡</span>
+            <h3>Rápida</h3>
+            <p>estructura optimizada y estilos eficientes.</p>
+          </div>
+          <div class="benefit">
+            <span class="icon">📱</span>
+            <h3>Responsive</h3>
+            <p>Perfecta en móvil, tablet y desktop.</p>
+          </div>
+          <div class="benefit">
+            <span class="icon">🎯</span>
+            <h3>Convierte</h3>
+            <p>CTA claros y foco en objetivos.</p>
+          </div>
+          <div class="benefit">
+            <span class="icon">🛠️</span>
+            <h3>Mantenible</h3>
+            <p>SCSS modular con variables y mixins.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="section container reveal">
+      <h2 class="section__title">Portfolio</h2>
+      <div class="grid cards-3">
+        <article class="card">
+          <h3>Ejemplo 1</h3>
+          <p>Hero con CTA, beneficios y formulario.</p>
+          <a class="btn btn--ghost" href="#" target="_blank" rel="noopener">Ir al sitio</a>
+        </article>
+        <article class="card">
+          <h3>Ejemplo 2</h3>
+          <p>One Page con anclas y animaciones.</p>
+          <a class="btn btn--ghost" href="#" target="_blank" rel="noopener">Ir al sitio</a>
+        </article>
+        <article class="card">
+          <h3>Ejemplo 3</h3>
+          <p>Multipágina enfocada en servicios.</p>
+          <a class="btn btn--ghost" href="#" target="_blank" rel="noopener">Ir al sitio</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Precios -->
+    <section id="precios" class="section section--dark reveal">
+      <div class="container">
+        <h2 class="section__title">Precios</h2>
+        <div class="grid pricing">
+          <article class="price">
+            <h3>One Page</h3>
+            <p class="amount">$25.000 <small>ARS</small></p>
+            <ul class="list">
+              <li>Secciones ancla + scroll suave</li>
+              <li>Diseño dorado/negro</li>
+              <li>Optimización básica SEO</li>
+            </ul>
+            <a class="btn btn--gold" href="#contacto">Lo quiero</a>
+          </article>
+
+          <article class="price">
+            <h3>Pro</h3>
+            <p class="amount">$45.000 <small>ARS</small></p>
+            <ul class="list">
+              <li>Todo lo de One Page</li>
+              <li>UI animada + 3 secciones extra</li>
+              <li>Integración Analytics</li>
+            </ul>
+            <a class="btn btn--ghost" href="#contacto">Consultar</a>
+          </article>
+
+          <article class="price">
+            <h3>Full</h3>
+            <p class="amount">$80.000 <small>ARS</small></p>
+            <ul class="list">
+              <li>Multipágina escalable</li>
+              <li>Optimización performance</li>
+              <li>Soporte 30 días</li>
+            </ul>
+            <a class="btn btn--ghost" href="#contacto">Agendar</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section container reveal">
+      <h2 class="section__title">Contacto</h2>
+      <p class="section__subtitle">Escribinos y armamos tu sitio.</p>
+
+      <form id="contactForm" class="form">
+        <div class="form__row">
+          <label>Nombre
+            <input type="text" name="nombre" required placeholder="Tu nombre">
+          </label>
+          <label>Email
+            <input type="email" name="email" required placeholder="tu@email.com">
+          </label>
+        </div>
+        <label>Mensaje
+          <textarea name="mensaje" rows="5" placeholder="Contame qué necesitás…"></textarea>
+        </label>
+        <button class="btn btn--gold" type="submit">Enviar por WhatsApp</button>
+        <p class="muted">Se abrirá WhatsApp con tu mensaje prellenado.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#top" class="to-top" aria-label="Volver arriba">↑</a>
+    <p>© <span id="year"></span> Nombre del chat — Hecho con ✨</p>
+  </footer>
+
+  <!-- Botón flotante WhatsApp (reemplazá el número) -->
+  <a class="wa-float" href="https://wa.me/5491123456789?text=Hola%20quiero%20una%20One%20Page" target="_blank" rel="noopener" aria-label="WhatsApp">🟢</a>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
