@@ -1,73 +1,100 @@
-// ====== Utilidades ======
-const $ = (q, c = document) => c.querySelector(q);
-const $$ = (q, c = document) => Array.from(c.querySelectorAll(q));
+// Utils
+const $ = (q, c=document) => c.querySelector(q);
+const $$ = (q, c=document) => Array.from(c.querySelectorAll(q));
 
-// Año en footer
-$("#year").textContent = new Date().getFullYear();
+// Año en footer (si lo quisieras mostrar en algún span#year)
+// $("#year").textContent = new Date().getFullYear();
 
-// Burger / menú móvil
+// Burger
 const burger = $(".burger");
 const navMenu = $("#navMenu");
 burger.addEventListener("click", () => {
-  const isOpen = navMenu.classList.toggle("open");
-  burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  const open = navMenu.classList.toggle("open");
+  burger.setAttribute("aria-expanded", open ? "true" : "false");
 });
+$$(".nav-link").forEach(a => a.addEventListener("click", () => navMenu.classList.remove("open")));
 
-// Cerrar menú al navegar (en móvil)
-$$(".nav-link").forEach(a =>
-  a.addEventListener("click", () => navMenu.classList.remove("open"))
-);
-
-// ScrollSpy: resalta link activo según sección visible
+// ScrollSpy
 const sections = $$("section[id]");
-const navLinks = $$(".nav-link");
-const byId = (id) => navLinks.find(a => a.getAttribute("href") === `#${id}`);
-
-const observer = new IntersectionObserver((entries) => {
+const links = $$(".nav-link");
+const linkFor = id => links.find(a => a.getAttribute("href") === `#${id}`);
+const spy = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    const id = entry.target.getAttribute("id");
-    const link = byId(id);
+    const id = entry.target.id;
+    const link = linkFor(id);
     if (!link) return;
     if (entry.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove("active"));
+      links.forEach(a => a.classList.remove("active"));
       link.classList.add("active");
     }
   });
 }, { root: null, rootMargin: "0px 0px -60% 0px", threshold: 0.25 });
-
-sections.forEach(s => observer.observe(s));
+sections.forEach(s => spy.observe(s));
 
 // Reveal on scroll
-const revealObs = new IntersectionObserver((entries) => {
+const rev = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.classList.add("in-view");
-      revealObs.unobserve(e.target);
+      e.target.classList.add("in");
+      rev.unobserve(e.target);
     }
   });
 }, { threshold: 0.15 });
-$$(".reveal").forEach(el => revealObs.observe(el));
+$$(".observe").forEach(el => rev.observe(el));
 
-// Form → WhatsApp
-const form = $("#contactForm");
-form.addEventListener("submit", (e) => {
+// Form → WhatsApp (reemplaza tu número)
+$("#contactForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = new FormData(form);
-  const nombre = data.get("nombre")?.toString().trim() || "Sin nombre";
-  const email = data.get("email")?.toString().trim() || "Sin email";
-  const msg = data.get("mensaje")?.toString().trim() || "Quiero una One Page";
-
-  // Reemplazá por tu número (con código país, sin +)
-  const numero = "5491123456789";
-  const texto = `Hola! Soy ${nombre} (${email}). ${msg}`;
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+  const data = new FormData(e.target);
+  const nombre = (data.get("nombre") || "").toString().trim() || "Sin nombre";
+  const tel    = (data.get("tel")    || "").toString().trim() || "Sin teléfono";
+  const zona   = (data.get("zona")   || "").toString().trim() || "Sin zona";
+  const msg    = (data.get("mensaje")|| "").toString().trim() || "Consulta por jardinería";
+  const numero = "5491112345678"; // <--- tu número (código país + área, sin +)
+  const texto  = `Hola! Soy ${nombre} (${tel}) de ${zona}. ${msg}`;
+  const url    = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
   window.open(url, "_blank", "noopener");
 });
 
-// Micro-efecto: mover brillo del header según el mouse
-const header = $(".site-header");
-header.addEventListener("mousemove", (e) => {
-  const { width, left } = header.getBoundingClientRect();
-  const x = ((e.clientX - left) / width) * 100;
-  header.style.setProperty("--x", `${x}%`);
-});
+// ===== Hojas cayendo =====
+(function fallingLeaves(){
+  const container = $("#leaves");
+  const LEAF_EMOJIS = ["🍃","🍂","🍁"]; // mezcla para variedad
+  const LEAF_COUNT = Math.min(40, Math.max(18, Math.floor(window.innerWidth / 35)));
+  for (let i = 0; i < LEAF_COUNT; i++) {
+    const leaf = document.createElement("span");
+    leaf.className = "leaf";
+    leaf.textContent = LEAF_EMOJIS[(Math.random()*LEAF_EMOJIS.length)|0];
+
+    // posición y animación aleatoria
+    const startLeft = Math.random() * 100;                // vw
+    const delay = (Math.random() * 6).toFixed(2);         // s
+    const fallDur = (8 + Math.random()*10).toFixed(2);    // s
+    const swayDur = (3 + Math.random()*4).toFixed(2);     // s
+    const scale = (0.8 + Math.random()*0.7).toFixed(2);   // tamaño
+
+    leaf.style.left = `${startLeft}vw`;
+    leaf.style.animationDuration = `${fallDur}s, ${swayDur}s`;
+    leaf.style.animationDelay = `${delay}s, ${delay/2}s`;
+    leaf.style.transform = `scale(${scale})`;
+
+    container.appendChild(leaf);
+
+    // reiniciar cuando llega al fondo, para que sea infinito
+    leaf.addEventListener("animationiteration", (e) => {
+      if (e.animationName === "fall") {
+        leaf.style.left = `${Math.random()*100}vw`;
+      }
+    });
+  }
+
+  // Recalcular en resize (suave)
+  let t;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      container.innerHTML = "";
+      fallingLeaves();
+    }, 300);
+  }, { once: true });
+})();

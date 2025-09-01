@@ -3,233 +3,164 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>One Page</title>
-  <meta name="description" content="Sitio One Page en tonos dorados y negros con secciones enlazadas dinámicamente, efectos sutiles y CTA a WhatsApp." />
-
-  <!-- Open Graph básico -->
-  <meta property="og:title" content="One Page — Nombre del chat" />
-  <meta property="og:description" content="Secciones dinámicas, efectos dorados y CTA a WhatsApp." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="logopng.png" />
-
-  <link rel="icon" href="logopng.png" />
-  <link rel="preload" as="image" href="logopng.png">
+  <title>Jardinero • Servicios de Jardinería</title>
+  <meta name="description" content="Corte de césped, poda, mantenimiento y diseño de jardines. Presupuestos por WhatsApp.">
   <link rel="stylesheet" href="styles.css" />
-  <!-- (Opcional) Google Analytics: pega tu script aquí -->
 </head>
-
 <body>
+  <!-- Fondo de hojas (se pinta por JS) -->
+  <div id="leaves" aria-hidden="true"></div>
+
   <!-- Header -->
-  <header class="site-header" id="top">
-    <div class="shine"></div>
+  <header class="site-header">
     <nav class="navbar container">
       <a href="#inicio" class="brand">
-        <img src="logopng.png" alt="Logo" class="brand__logo">
-        <span class="brand__name">FigiKhan</span>
+        <img src="imagenes/logopng.png" alt="Logo" class="logo" />
+        <span>Jardinero</span>
       </a>
 
       <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">☰</button>
-
       <ul id="navMenu" class="nav-links" role="menubar">
         <li><a href="#inicio" class="nav-link active" role="menuitem">Inicio</a></li>
         <li><a href="#servicios" class="nav-link" role="menuitem">Servicios</a></li>
-        <li><a href="#beneficios" class="nav-link" role="menuitem">Beneficios</a></li>
-        <li><a href="#portfolio" class="nav-link" role="menuitem">Portfolio</a></li>
-        <li><a href="#precios" class="nav-link" role="menuitem">Precios</a></li>
+        <li><a href="#trabajos" class="nav-link" role="menuitem">Trabajos</a></li>
+        <li><a href="#testimonios" class="nav-link" role="menuitem">Testimonios</a></li>
         <li><a href="#contacto" class="nav-link" role="menuitem">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="inicio" class="section hero container reveal">
-      <div class="hero__content">
-        <h1 class="title">
-          Tu <span class="gold">One Page</span> lista para convertir
-        </h1>
+    <!-- INICIO -->
+    <section id="inicio" class="section hero container observe">
+      <div>
+        <h1 class="title">Cuidamos tu jardín como si fuera nuestro</h1>
         <p class="lead">
-          Diseño en dorado y negro, enlaces dinámicos y efectos sutiles. Todo en una sola página rápida y moderna.
+          Corte de césped, poda segura, mantenimiento integral y diseño de espacios verdes. Puntualidad, prolijidad y precios claros.
         </p>
         <div class="actions">
-          <a class="btn btn--gold" href="#servicios">Ver servicios</a>
-          <a class="btn btn--ghost" href="#contacto">Contactar</a>
+          <a class="btn btn--primary" href="#servicios">Ver servicios</a>
+          <a class="btn btn--ghost" href="#contacto">Pedir presupuesto</a>
+          <a class="btn btn-outline" href="https://federicoleonelfigini.github.io/proyectofinal-Figini/">Volver a FigiKhan</a>
         </div>
-
-        <ul class="ticks">
-          <li>Scroll suave + menú activo por sección</li>
-          <li>Tarjetas con brillo y micro-animaciones</li>
-          <li>CTA a WhatsApp con mensaje prellenado</li>
-        </ul>
       </div>
-
-      <div class="hero__visual">
+      <div class="hero__visual" aria-hidden="true">
         <div class="orb"></div>
-        <div class="sparkles" aria-hidden="true"></div>
+        <div class="grid-bg"></div>
       </div>
     </section>
 
-    <!-- Servicios -->
-    <section id="servicios" class="section container reveal">
-      <h2 class="section__title">Servicios</h2>
-      <p class="section__subtitle">Cinco opciones rápidas para lanzar tu web.</p>
-
-      <div class="grid cards-5">
-        <article class="card">
-          <h3>Landing Page Express</h3>
-          <p>Sección única enfocada en conversión y CTA.</p>
-          <a href="#contacto" class="btn-link">Quiero esto →</a>
-        </article>
-
-        <article class="card">
-          <h3>One Page Responsive</h3>
-          <p>Menú ancla a secciones con scroll suave.</p>
-          <a href="#contacto" class="btn-link">Pedir cotización →</a>
-        </article>
-
-        <article class="card">
-          <h3>Maquetación HTML/SCSS</h3>
-          <p>Código limpio, variables y mixins listos.</p>
-          <a href="#contacto" class="btn-link">Hablemos →</a>
-        </article>
-
-        <article class="card">
-          <h3>UI Animada</h3>
-          <p>Interacciones elegantes sin perder performance.</p>
-          <a href="#contacto" class="btn-link">Ver opciones →</a>
-        </article>
-
-        <article class="card">
-          <h3>Sitio Multipágina</h3>
-          <p>Base escalable a más secciones y blog.</p>
-          <a href="#contacto" class="btn-link">Armar plan →</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Beneficios -->
-    <section id="beneficios" class="section section--dark reveal">
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section section--alt observe">
       <div class="container">
-        <h2 class="section__title">Beneficios</h2>
-        <div class="grid benefits">
-          <div class="benefit">
-            <span class="icon">⚡</span>
-            <h3>Rápida</h3>
-            <p>estructura optimizada y estilos eficientes.</p>
-          </div>
-          <div class="benefit">
-            <span class="icon">📱</span>
-            <h3>Responsive</h3>
-            <p>Perfecta en móvil, tablet y desktop.</p>
-          </div>
-          <div class="benefit">
-            <span class="icon">🎯</span>
-            <h3>Convierte</h3>
-            <p>CTA claros y foco en objetivos.</p>
-          </div>
-          <div class="benefit">
-            <span class="icon">🛠️</span>
-            <h3>Mantenible</h3>
-            <p>SCSS modular con variables y mixins.</p>
-          </div>
+        <h2 class="section__title">Servicios</h2>
+        <p class="section__subtitle">Todo lo necesario para mantener tu jardín sano y lindo todo el año.</p>
+
+        <div class="features grid">
+          <article class="feature-card">
+            <h3>🍃 Corte de césped</h3>
+            <p>Chico / Mediano / Grande • Bordes prolijos y recolección.</p>
+            <div class="price">desde $</div>
+          </article>
+          <article class="feature-card">
+            <h3>🌳 Poda</h3>
+            <p>Arbustos y árboles con descarte y limpieza final.</p>
+            <div class="price">a convenir</div>
+          </article>
+          <article class="feature-card">
+            <h3>🛠️ Mantenimiento</h3>
+            <p>Mensual o quincenal • Riego, fertilización y control básico.</p>
+            <div class="price">planes flexibles</div>
+          </article>
         </div>
-      </div>
-    </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="section container reveal">
-      <h2 class="section__title">Portfolio</h2>
-      <div class="grid cards-3">
-        <article class="card">
-          <h3>Ejemplo 1</h3>
-          <p>Hero con CTA, beneficios y formulario.</p>
-          <a class="btn btn--ghost" href="#" target="_blank" rel="noopener">Ir al sitio</a>
-        </article>
-        <article class="card">
-          <h3>Ejemplo 2</h3>
-          <p>One Page con anclas y animaciones.</p>
-          <a class="btn btn--ghost" href="#" target="_blank" rel="noopener">Ir al sitio</a>
-        </article>
-        <article class="card">
-          <h3>Ejemplo 3</h3>
-          <p>Multipágina enfocada en servicios.</p>
-          <a class="btn btn--ghost" href="#" target="_blank" rel="noopener">Ir al sitio</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Precios -->
-    <section id="precios" class="section section--dark reveal">
-      <div class="container">
-        <h2 class="section__title">Precios</h2>
-        <div class="grid pricing">
-          <article class="price">
-            <h3>One Page</h3>
-            <p class="amount">$25.000 <small>ARS</small></p>
-            <ul class="list">
-              <li>Secciones ancla + scroll suave</li>
-              <li>Diseño dorado/negro</li>
-              <li>Optimización básica SEO</li>
-            </ul>
-            <a class="btn btn--gold" href="#contacto">Lo quiero</a>
+        <div class="cards grid" style="margin-top:1.2rem">
+          <article class="card">
+            <h3>🌼 Diseño de canteros</h3>
+            <p>Selección de especies según sol/sombra y época.</p>
           </article>
-
-          <article class="price">
-            <h3>Pro</h3>
-            <p class="amount">$45.000 <small>ARS</small></p>
-            <ul class="list">
-              <li>Todo lo de One Page</li>
-              <li>UI animada + 3 secciones extra</li>
-              <li>Integración Analytics</li>
-            </ul>
-            <a class="btn btn--ghost" href="#contacto">Consultar</a>
+          <article class="card">
+            <h3>💧 Riego</h3>
+            <p>Automatización y ajuste estacional para ahorro de agua.</p>
           </article>
-
-          <article class="price">
-            <h3>Full</h3>
-            <p class="amount">$80.000 <small>ARS</small></p>
-            <ul class="list">
-              <li>Multipágina escalable</li>
-              <li>Optimización performance</li>
-              <li>Soporte 30 días</li>
-            </ul>
-            <a class="btn btn--ghost" href="#contacto">Agendar</a>
+          <article class="card">
+            <h3>♻️ Limpieza</h3>
+            <p>Recolección de hojas, ramas y retiro de residuos verdes.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="section container reveal">
+    <!-- TRABAJOS -->
+    <section id="trabajos" class="section container observe">
+      <h2 class="section__title">Trabajos</h2>
+      <p class="section__subtitle">Antes y después, mejoras estéticas y puesta a punto.</p>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" alt="Jardín con césped" />
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop" alt="Cantero con flores" />
+        <img src="./imagenes/patio.png" alt="Patio con plantas" />
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="section section--alt observe">
+      <div class="container">
+        <h2 class="section__title">Testimonios</h2>
+        <div class="cards">
+          <article class="card">
+            <p>“Impecable el corte y súper puntuales. ¡Recomiendo!”</p>
+            <strong>— Mariana G.</strong>
+          </article>
+          <article class="card">
+            <p>“Ordenaron los árboles y dejaron todo limpísimo.”</p>
+            <strong>— Daniel P.</strong>
+          </article>
+          <article class="card">
+            <p>“Con el plan mensual el jardín queda siempre prolijo.”</p>
+            <strong>— Belén A.</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section container observe">
       <h2 class="section__title">Contacto</h2>
-      <p class="section__subtitle">Escribinos y armamos tu sitio.</p>
-
+      <p class="section__subtitle">Contanos qué necesitás y coordinamos visita sin compromiso.</p>
       <form id="contactForm" class="form">
-        <div class="form__row">
+        <div class="row">
           <label>Nombre
-            <input type="text" name="nombre" required placeholder="Tu nombre">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
           </label>
-          <label>Email
-            <input type="email" name="email" required placeholder="tu@email.com">
+          <label>Teléfono
+            <input type="tel" name="tel" placeholder="Tu teléfono" required>
           </label>
         </div>
-        <label>Mensaje
-          <textarea name="mensaje" rows="5" placeholder="Contame qué necesitás…"></textarea>
+        <label>Zona/Barrio
+          <input type="text" name="zona" placeholder="Ej: Palermo / Godoy Cruz">
         </label>
-        <button class="btn btn--gold" type="submit">Enviar por WhatsApp</button>
-        <p class="muted">Se abrirá WhatsApp con tu mensaje prellenado.</p>
+        <label>Mensaje
+          <textarea name="mensaje" rows="4" placeholder="Ej: Corte de césped y poda de 2 árboles…"></textarea>
+        </label>
+        <button class="btn btn--primary" type="submit">Enviar por WhatsApp</button>
       </form>
     </section>
   </main>
 
-  <footer class="footer">
-    <a href="#top" class="to-top" aria-label="Volver arriba">↑</a>
-    <p>© <span id="year"></span> Nombre del chat — Hecho con ✨</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container foot-inner">
+      <img src="imagenes/logopng.png" alt="Figikhan" class="footer-logo">
+      <nav class="socials">
+        <a href="https://www.instagram.com/figi_khan/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <span>·</span>
+        <a href="https://x.com/figikhan" target="_blank" rel="noopener" aria-label="X (Twitter)">X</a>
+        <span>·</span>
+        <a href="https://www.tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+      </nav>
+      <small>© Figikhan — Jardinero</small>
+    </div>
   </footer>
-
-  <!-- Botón flotante WhatsApp (reemplazá el número) -->
-  <a class="wa-float" href="https://wa.me/5491123456789?text=Hola%20quiero%20una%20One%20Page" target="_blank" rel="noopener" aria-label="WhatsApp">🟢</a>
 
   <script src="main.js" defer></script>
 </body>
